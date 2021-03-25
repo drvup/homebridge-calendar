@@ -1,18 +1,13 @@
-# homebridge-calendar
+# homebridge-calendar-v2
 
 A calendar plugin for [homebridge](https://github.com/nfarina/homebridge), which allows flexible scheduling of triggers using any iCal calendar.
 
-HomeKits own scheduling means are limited and in some instances not flexible enough for more advanced scheduling needs. This plugin integrates any iCal calendar (iCloud, Google Calendar, ...) into HomeKit and creates stateless switches for the events in the calendar using the scheduled event summary.
+HomeKits own scheduling means are limited and in some instances not flexible enough for more advanced scheduling needs. This plugin integrates any iCal calendar (iCloud, Google Calendar, ...) into HomeKit and creates stateless switches for the events in the calendar using the scheduled event summary. The original is published by [Grover (Michael Fröhlich)](https://github.com/grover/homebridge-calendar/issues) - but unfortunatley there is no update coming in anymore, so I did a fork and added some missing functionalities for my own. Thanks to Michael for the great job he did!
+
 
 ## Status
 
-[![HitCount](http://hits.dwyl.io/grover/homebridge-calendar.svg)](https://github.com/grover/homebridge-calendar)
-[![Build Status](https://travis-ci.org/grover/homebridge-calendar.png?branch=master)](https://travis-ci.org/grover/homebridge-calendar)
-[![codecov.io](https://img.shields.io/codecov/c/github/grover/homebridge-calendar/master.svg?style=flat-square)](http://codecov.io/github/grover/homebridge-calendar?branch=master)
-[![Dependency Status](https://img.shields.io/david/grover/homebridge-calendar.svg?style=flat-square)](https://david-dm.org/grover/homebridge-calendar)
-[![devDependency Status](https://img.shields.io/david/dev/grover/homebridge-calendar.svg?style=flat-square)](https://david-dm.org/grover/homebridge-calendar#info=devDependencies)
-[![Node version](https://img.shields.io/node/v/homebridge-calendar.svg?style=flat)](http://nodejs.org/download/)
-[![NPM Version](https://badge.fury.io/js/homebridge-calendar.svg?style=flat)](https://npmjs.org/package/homebridge-calendar)
+will follow 
 
 ## Supported calendars
 
@@ -43,6 +38,7 @@ After [Homebridge](https://github.com/nfarina/homebridge) has been installed:
           "url": "webcal://",
           "pollingInterval": 5,
           "offset": "-8h",
+          "expires": "-16h",
           "sensors": [
             "Sensor 1",
             "Sensor 2"
@@ -71,9 +67,10 @@ The above example creates the plugin with three contact sensors:
 
 Calendar events may overlap, may be full day, recurring or single occurance events and can even span multiple days.
 
-### Offset
+### Offset + expires
 
 You might want to trigger the sensors earlier than the scheduled event. This can be done by applying an offset to the calendar. An offset specifies the time to subtract from the scheduled start of the event. The offset essentially moves the start date ahead by the specified amount of time. The end date of the events is unaffected. Essentially this extends the event duration by the offset.
+With the newest version you can do the same for the end-time of events. Using 'expires' as config parameter.
 
 #### Offset syntax
 
@@ -98,8 +95,8 @@ To give the plugin access to a calender it is advised to create a seperate (iClo
 
 You can contribute to this homebridge plugin in following ways:
 
-- [Report issues](https://github.com/grover/homebridge-calendar/issues) and help verify fixes as they are checked in.
-- Review the [source code changes](https://github.com/grover/homebridge-calendar/pulls).
+- [Report issues](https://github.com/drvup/homebridge-calendar-v2/issues) and help verify fixes as they are checked in.
+- Review the [source code changes](https://github.com/drvup/homebridge-calendar-v2/pulls).
 - Contribute bug fixes.
 - Contribute changes to extend the capabilities
 
@@ -110,7 +107,7 @@ Pull requests are accepted.
 If you use this and like it - please leave a note by staring this package here or on GitHub.
 
 If you use it and have a
-problem, file an issue at [GitHub](https://github.com/grover/homebridge-calendar/issues) - I'll try
+problem, file an issue at [GitHub](https://github.com/drvup/homebridge-calendar-v2/issues) - I'll try
 to help.
 
 If you tried this, but don't like it: tell me about it in an issue too. I'll try my best
@@ -123,6 +120,7 @@ If you fork this, go ahead - I'll accept pull requests for enhancements.
 MIT License
 
 Copyright (c) 2018 Michael Fröhlich
+Added some small features by Cedric Heisel
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

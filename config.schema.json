@@ -1,9 +1,9 @@
 {
-    "pluginAlias": "Calendar",
+    "pluginAlias": "CalendarV2",
     "pluginType": "platform",
     "singular": true,
     "headerDisplay": "A calendar plugin for homebridge, which allows flexible scheduling of triggers using any iCal calendar.",
-    "footerDisplay": "For detailed description of parameters, see: https://github.com/grover/homebridge-calendar",
+    "footerDisplay": "For detailed description of parameters, see: https://github.com/drvup/homebridge-calendar-v2",
     "schema": {
       "type": "object",
       "properties": {

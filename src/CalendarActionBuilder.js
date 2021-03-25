@@ -17,13 +17,16 @@ class CalendarActionBuilder {
     if (expires === undefined) {
       this._expiresOffset = '-0s';
     } else if (expires.startsWith('-') === false) {
-      this._expiresOffset = `-${offset}`;
+      this._expiresOffset = `-${expires}`;
     } else {
-      this._expiresOffset = offset;
+      this._expiresOffset = expires;
     }
 
     if (moment().isRelativeTimeFormat(this._startOffset) === false) {
-      throw new Error('Invalid relative time format.');
+      throw new Error('Invalid relative time format for offset.');
+    }
+    if (moment().isRelativeTimeFormat(this._expiresOffset) === false) {
+      throw new Error('Invalid relative time format for expires.');
     }
   }
 

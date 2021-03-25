@@ -13,7 +13,7 @@ const HOMEBRIDGE = {
 };
 
 const platformName = 'homebridge-calendar-v2';
-const platformPrettyName = 'Calendar V2';
+const platformPrettyName = 'CalendarV2';
 
 module.exports = (homebridge) => {
   HOMEBRIDGE.Accessory = homebridge.platformAccessory;
