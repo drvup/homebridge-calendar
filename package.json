@@ -1,6 +1,6 @@
 {
-  "name": "homebridge-calendar",
-  "version": "0.4.0",
+  "name": "homebridge-calendar-v2",
+  "version": "0.5.0",
   "description": "A calendar plugin for homebridge (https://github.com/nfarina/homebridge), which allows flexible scheduling of triggers using any iCal calendar.",
   "main": "src/index.js",
   "scripts": {
@@ -42,6 +42,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/grover/homebridge-calendar.git"
+    "url": "git+https://github.com/drvup/homebridge-calendar.git"
   }
 }

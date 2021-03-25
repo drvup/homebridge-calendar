@@ -4,13 +4,22 @@ const moment = require('./moment');
 
 class CalendarActionBuilder {
 
-  constructor(offset) {
+  constructor(offset, expires) {
     if (offset === undefined) {
       this._startOffset = '-0s';
     } else if (offset.startsWith('-') === false) {
       this._startOffset = `-${offset}`;
     } else {
       this._startOffset = offset;
+    }
+
+    // add an offset for the endDate (expires)
+    if (expires === undefined) {
+      this._expiresOffset = '-0s';
+    } else if (expires.startsWith('-') === false) {
+      this._expiresOffset = `-${offset}`;
+    } else {
+      this._expiresOffset = offset;
     }
 
     if (moment().isRelativeTimeFormat(this._startOffset) === false) {
@@ -33,7 +42,7 @@ class CalendarActionBuilder {
 
     const events = [].concat(cal.events.map(e => ({
       date: moment(e.startDate.toJSDate()).relativeTime(this._startOffset).toDate(),
-      expires: e.endDate.toJSDate(),
+      expires: moment(e.endDate.toJSDate()).relativeTime(this._expiresOffset).toDate(),
       state: true,
       summary: e.summary
     })),
@@ -51,7 +60,7 @@ class CalendarActionBuilder {
 
     const events = [].concat(cal.occurrences.map(e => ({
       date: moment(e.startDate.toJSDate()).relativeTime(this._startOffset).toDate(),
-      expires: e.endDate.toJSDate(),
+      expires: moment(e.endDate.toJSDate()).relativeTime(this._expiresOffset).toDate(),
       state: true,
       summary: e.item.summary
     })),

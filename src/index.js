@@ -12,8 +12,8 @@ const HOMEBRIDGE = {
   UUIDGen: null
 };
 
-const platformName = 'homebridge-calendar';
-const platformPrettyName = 'Calendar';
+const platformName = 'homebridge-calendar-v2';
+const platformPrettyName = 'Calendar V2';
 
 module.exports = (homebridge) => {
   HOMEBRIDGE.Accessory = homebridge.platformAccessory;
